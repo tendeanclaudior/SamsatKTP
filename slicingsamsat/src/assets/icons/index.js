@@ -5,5 +5,15 @@ import IcVector from './IconVector.svg';
 import IcHelp from './IconHelp.svg';
 import IcNotif from './IconNotif.svg';
 import IcProfile from './IconProfile.svg';
+import IcBack from './IconBack.svg';
 
-export {IcGoogle, IcRincianK, IcTambah, IcVector, IcHelp, IcNotif, IcProfile};
+export {
+  IcGoogle,
+  IcRincianK,
+  IcTambah,
+  IcVector,
+  IcHelp,
+  IcNotif,
+  IcProfile,
+  IcBack,
+};

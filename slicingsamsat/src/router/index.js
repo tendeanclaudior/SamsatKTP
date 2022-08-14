@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Dashboard, Login, Register} from '../pages';
+import {Dashboard, ListVehicle, Login, Register} from '../pages';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +20,11 @@ const Router = () => {
       <Stack.Screen
         name="Dashboard"
         component={Dashboard}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ListVehicle"
+        component={ListVehicle}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

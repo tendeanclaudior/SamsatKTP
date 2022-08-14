@@ -11,7 +11,7 @@ import {BackgroundDS} from '../../assets';
 import {Button, Card, Gap} from '../../components';
 import ScrollViewHorizontal from '../ScrollViewHorizontal';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   return (
     <ImageBackground source={BackgroundDS} style={styles.page}>
       <View style={styles.iconHN}>
@@ -42,7 +42,11 @@ const Dashboard = () => {
       </ScrollView>
 
       <View style={styles.buttom}>
-        <Button click="iconOnly" icon="iconKendaraan" />
+        <Button
+          click="iconOnly"
+          icon="iconKendaraan"
+          onPress={() => navigation.navigate('ListVehicle')}
+        />
         <View style={styles.add}>
           <Button click="iconOnly" icon="iconTambah" />
         </View>
