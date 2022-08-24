@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {ImgMotor} from '../../../assets';
 
@@ -10,30 +10,33 @@ const Card = props => {
     tipe = 'H5C02R20M1 M/T',
     nominal = '312.100',
     masa_berlaku = '26 Jan 2020',
+    onPress = onPress,
   } = props;
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <Image style={styles.motor} source={ImgMotor} />
-        <View style={styles.textWrapper}>
-          <Text style={styles.platnomor}>{platnomor}</Text>
-          <View style={styles.descWrapper}>
-            <Text style={styles.jenis}>{jenis}</Text>
-            <Text style={styles.merek}>{merek}</Text>
-          </View>
-          <Text style={styles.tipe}>{tipe}</Text>
-          <Text style={styles.nominal}>Rp {nominal}</Text>
-          <View style={styles.descWrapper}>
-            <View style={styles.masa_berlaku1}>
-              <Text style={styles.textMB}>Berlaku Sampai</Text>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <Image style={styles.motor} source={ImgMotor} />
+          <View style={styles.textWrapper}>
+            <Text style={styles.platnomor}>{platnomor}</Text>
+            <View style={styles.descWrapper}>
+              <Text style={styles.jenis}>{jenis}</Text>
+              <Text style={styles.merek}>{merek}</Text>
             </View>
-            <View style={styles.masa_berlaku2}>
-              <Text style={styles.textMB}>{masa_berlaku}</Text>
+            <Text style={styles.tipe}>{tipe}</Text>
+            <Text style={styles.nominal}>Rp {nominal}</Text>
+            <View style={styles.descWrapper}>
+              <View style={styles.masa_berlaku1}>
+                <Text style={styles.textMB}>Berlaku Sampai</Text>
+              </View>
+              <View style={styles.masa_berlaku2}>
+                <Text style={styles.textMB}>{masa_berlaku}</Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

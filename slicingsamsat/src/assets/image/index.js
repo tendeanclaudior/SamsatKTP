@@ -7,6 +7,7 @@ import ImgAds from './ImgAds.png';
 import ImgMotor from './ImgMotor.png';
 import ImgMobil from './ImgMobil.png';
 import ImgAdd from './ImgAdd.png';
+import ImgNotif from './ImgNotif.svg';
 
 export {
   ImgJasaraharja,
@@ -18,4 +19,5 @@ export {
   ImgMotor,
   ImgMobil,
   ImgAdd,
+  ImgNotif,
 };

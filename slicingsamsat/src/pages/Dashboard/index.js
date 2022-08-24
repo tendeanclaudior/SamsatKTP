@@ -16,7 +16,11 @@ const Dashboard = ({navigation}) => {
     <ImageBackground source={BackgroundDS} style={styles.page}>
       <View style={styles.iconHN}>
         <Button click="iconOnly" icon="iconHelp" />
-        <Button click="iconOnly" icon="iconNotif" />
+        <Button
+          click="iconOnly"
+          icon="iconNotif"
+          onPress={() => navigation.navigate('Notification')}
+        />
       </View>
 
       <View style={styles.titleContainer}>
@@ -33,7 +37,7 @@ const Dashboard = ({navigation}) => {
       </View>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <Gap width={24} />
-        <Card />
+        <Card onPress={() => navigation.navigate('VehicleDetails')} />
         <Gap width={24} />
         <Card />
         <Gap width={24} />
@@ -48,7 +52,11 @@ const Dashboard = ({navigation}) => {
           onPress={() => navigation.navigate('ListVehicle')}
         />
         <View style={styles.add}>
-          <Button click="iconOnly" icon="iconTambah" />
+          <Button
+            click="iconOnly"
+            icon="iconTambah"
+            onPress={() => navigation.navigate('AddVehicle')}
+          />
         </View>
         <Button click="iconOnly" icon="iconVector" />
       </View>

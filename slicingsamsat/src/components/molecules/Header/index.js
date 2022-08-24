@@ -1,8 +1,8 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {IcBack} from '../../../assets';
+import {IcBack, IcTrash} from '../../../assets';
 
-const Header = ({title, onBack}) => {
+const Header = ({title, onBack, onTrash}) => {
   return (
     <View style={styles.container}>
       {onBack && (
@@ -13,6 +13,13 @@ const Header = ({title, onBack}) => {
         </TouchableOpacity>
       )}
       <Text style={styles.text}>{title}</Text>
+      {onTrash && (
+        <TouchableOpacity onPress={onTrash} activeOpacity={0.5}>
+          <View style={styles.iconTrash}>
+            <IcTrash />
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -36,5 +43,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Poppins-Medium',
     color: '#ffffff',
+  },
+  iconTrash: {
+    padding: 10,
+    marginLeft: 120,
   },
 });

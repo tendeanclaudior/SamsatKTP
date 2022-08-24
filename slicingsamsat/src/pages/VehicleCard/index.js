@@ -1,32 +1,110 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
 import React from 'react';
 import {ImgMotor} from '../../assets';
 import {Gap} from '../../components';
+import {fonts} from '../../assets/fonts';
 
-const VehicleCard = () => {
-  return (
-    <View style={styles.vehicleContainer}>
-      <View style={styles.vehicle}>
-        <View style={styles.imgContainer}>
-          <Image source={ImgMotor} />
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    policeNumber: 'DB 5848 C',
+    vehicleName: 'Honda CB150R',
+    vehicleMerk: 'HONDA',
+    vehicleType: 'H5C02R20M1 M/T',
+    dateExpire: '26 Jan 2020',
+    price: '312.100',
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bl',
+    policeNumber: 'DB 5848 C',
+    vehicleName: 'Honda CB150R',
+    vehicleMerk: 'HONDA',
+    vehicleType: 'H5C02R20M1 M/T',
+    dateExpire: '26 Jan 2020',
+    price: '312.100',
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bs',
+    policeNumber: 'DB 5848 C',
+    vehicleName: 'Honda CB150R',
+    vehicleMerk: 'HONDA',
+    vehicleType: 'H5C02R20M1 M/T',
+    dateExpire: '26 Jan 2020',
+    price: '312.100',
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bb',
+    policeNumber: 'DB 5848 C',
+    vehicleName: 'Honda CB150R',
+    vehicleMerk: 'HONDA',
+    vehicleType: 'H5C02R20M1 M/T',
+    dateExpire: '26 Jan 2020',
+    price: '312.100',
+  },
+];
+
+const Vehicle = ({
+  policeNumber,
+  vehicleName,
+  vehicleMerk,
+  vehicleType,
+  dateExpire,
+  price,
+}) => (
+  <View style={styles.container}>
+    <View style={styles.wrapperContainer}>
+      <View style={styles.vehicleCard}>
+        <Image source={ImgMotor} />
+        <View>
+          <Text style={styles.policeNumber}>{policeNumber}</Text>
+          <View style={styles.border} />
+          <Gap height={75} />
           <View>
-            <Text style={styles.policeNumber}>DB 5848 C</Text>
-            <View style={styles.border} />
-            <Gap height={60} />
-            <View>
-              <Text style={styles.textMerek}>Honda CB150R</Text>
-              <Text style={styles.textModel}>HONDA H5C02R20M1 M/T</Text>
-            </View>
+            <Text style={styles.vehicleName}>
+              {vehicleName}{' '}
+              <Text style={styles.vehicleType}>{vehicleMerk}</Text>
+            </Text>
+            <Text style={styles.vehicleType}>{vehicleType}</Text>
           </View>
-        </View>
-        <View style={styles.payContainer}>
-          <View style={styles.pay}>
-            <Text style={styles.textValid}>Berlaku Sampai</Text>
-            <Text style={styles.textDate}>26 Jan 2020</Text>
-          </View>
-          <Text style={styles.price}>Rp 312.100</Text>
         </View>
       </View>
+      <View style={styles.expireAndPrice}>
+        <View style={styles.expireContainer}>
+          <View style={styles.expireTextContainer}>
+            <Text style={styles.expireTitle}>Berlaku Sampai</Text>
+          </View>
+          <View style={styles.dateTextContainer}>
+            <Text style={styles.dateTitle}>{dateExpire}</Text>
+          </View>
+        </View>
+        <View style={styles.priceContainer}>
+          <Text style={styles.priceTitle}>Rp {price}</Text>
+        </View>
+      </View>
+    </View>
+  </View>
+);
+
+const VehicleCard = () => {
+  const renderItem = ({item}) => (
+    <Vehicle
+      policeNumber={item.policeNumber}
+      vehicleName={item.vehicleName}
+      vehicleMerk={item.vehicleMerk}
+      vehicleType={item.vehicleType}
+      dateExpire={item.dateExpire}
+      price={item.price}
+    />
+  );
+
+  return (
+    <View style={styles.page}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
@@ -34,83 +112,90 @@ const VehicleCard = () => {
 export default VehicleCard;
 
 const styles = StyleSheet.create({
-  vehicleContainer: {
+  page: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  container: {
+    paddingVertical: 24,
     paddingHorizontal: 20,
   },
-  vehicle: {
-    backgroundColor: '#ffffff',
+  wrapperContainer: {
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
-    borderColor: '#000000',
+    shadowColor: '#000000',
     elevation: 10,
   },
-  imgContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 15,
-  },
-  policeNumber: {
-    fontSize: 24,
-    fontFamily: 'Poppins-Medium',
-    color: '#000000',
-    textAlign: 'right',
-  },
-  border: {
-    borderBottomWidth: 4,
-    width: 180,
-    borderColor: '#F3F3F3',
-  },
-  textMerek: {
-    fontSize: 15,
-    fontFamily: 'Poppins-Medium',
-    color: '#000000',
-    textAlign: 'right',
-  },
-  textModel: {
-    fontSize: 13,
-    fontFamily: 'Poppins-Medium',
-    color: '#C2BFBF',
-    textAlign: 'right',
-  },
-  payContainer: {
-    backgroundColor: '#9A0000',
-    width: '100%',
-    borderBottomEndRadius: 8,
-    borderBottomStartRadius: 8,
+  vehicleCard: {
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  pay: {
+  policeNumber: {
+    fontSize: 24,
+    fontFamily: fonts.Poppins.medium,
+    color: '#000000CC',
+    textAlign: 'right',
+  },
+  border: {
+    borderBottomWidth: 3,
+    borderBottomColor: '#F3F3F3',
+    width: 190,
+  },
+  vehicleName: {
+    fontSize: 15,
+    fontFamily: fonts.Poppins.medium,
+    color: '#000000CC',
+    textAlign: 'right',
+  },
+  vehicleType: {
+    fontSize: 12,
+    fontFamily: fonts.Poppins.medium,
+    color: '#C2BFBF',
+    textAlign: 'right',
+  },
+  expireAndPrice: {
+    backgroundColor: '#9A0000',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    padding: 10,
   },
-  textValid: {
-    fontSize: 11,
-    fontFamily: 'Poppins-Medium',
-    color: 'white',
+  expireContainer: {
+    flexDirection: 'row',
+  },
+  expireTextContainer: {
     backgroundColor: '#2E2E2E',
-    paddingHorizontal: 6,
-    paddingVertical: 12,
-    textAlign: 'center',
+    paddingVertical: 7,
+    paddingHorizontal: 7,
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
   },
-  textDate: {
-    fontSize: 11,
-    fontFamily: 'Poppins-Medium',
-    color: 'white',
+  dateTextContainer: {
     backgroundColor: '#C2BFBF',
-    paddingHorizontal: 6,
-    paddingVertical: 12,
-    textAlign: 'center',
+    paddingVertical: 7,
+    paddingHorizontal: 7,
     borderTopRightRadius: 8,
     borderBottomRightRadius: 8,
   },
-  price: {
-    fontSize: 18,
-    fontFamily: 'Poppins-Medium',
-    color: 'white',
-    paddingHorizontal: 4,
-    paddingVertical: 4,
+  expireTitle: {
+    fontSize: 15,
+    fontFamily: fonts.Poppins.medium,
+    color: '#FFFFFF',
+  },
+  dateTitle: {
+    fontSize: 15,
+    fontFamily: fonts.Poppins.medium,
+    color: '#FFFFFF',
+  },
+  priceContainer: {
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+  },
+  priceTitle: {
+    fontSize: 15,
+    fontFamily: fonts.Poppins.bold,
+    color: '#FFFFFF',
   },
 });

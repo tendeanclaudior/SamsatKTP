@@ -1,6 +1,6 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Gap, Header} from '../../components';
+import {Header} from '../../components';
 import VehicleCard from '../VehicleCard';
 
 const ListVehicle = ({navigation}) => {
@@ -10,17 +10,7 @@ const ListVehicle = ({navigation}) => {
         title={'Daftar Kendaraan'}
         onBack={() => navigation.navigate('Dashboard')}
       />
-      <ScrollView showsVerticalScrollIndicator={true}>
-        <Gap height={24} />
-        <VehicleCard />
-        <Gap height={15} />
-        <VehicleCard />
-        <Gap height={15} />
-        <VehicleCard />
-        <Gap height={15} />
-        <VehicleCard />
-        <Gap height={20} />
-      </ScrollView>
+      <VehicleCard />
     </View>
   );
 };
@@ -31,5 +21,8 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: '#ffffff',
+  },
+  vehicleCard: {
+    padding: 16,
   },
 });

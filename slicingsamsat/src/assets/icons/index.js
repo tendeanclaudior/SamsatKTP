@@ -6,6 +6,10 @@ import IcHelp from './IconHelp.svg';
 import IcNotif from './IconNotif.svg';
 import IcProfile from './IconProfile.svg';
 import IcBack from './IconBack.svg';
+import IcInfo from './IconInfo.svg';
+import IcAddPhoto from './IconAddPhoto.svg';
+import IcTrash from './IcTrash.svg';
+import IcPen from './IconPen.svg';
 
 export {
   IcGoogle,
@@ -16,4 +20,8 @@ export {
   IcNotif,
   IcProfile,
   IcBack,
+  IcInfo,
+  IcAddPhoto,
+  IcTrash,
+  IcPen,
 };
