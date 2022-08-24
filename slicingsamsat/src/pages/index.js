@@ -7,6 +7,7 @@ import Notification from './Notification';
 import VehicleDetail from './VehicleDetails';
 import AddVehicle from './AddVehicle';
 import LoginGoogle from './LoginGoogle';
+import Akun from './Akun';
 
 export {
   Login,
@@ -18,4 +19,5 @@ export {
   VehicleDetail,
   AddVehicle,
   LoginGoogle,
+  Akun,
 };

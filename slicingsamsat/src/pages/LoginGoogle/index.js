@@ -36,7 +36,6 @@ const LoginGoogle = ({navigation}) => {
           </View>
         </View>
       </TouchableOpacity>
-      <Gap height={198} />
       <View style={styles.wrapperContent}>
         <View style={styles.wrapperDaftarContainer}>
           <Text style={styles.wrapperDaftar}>Belum memiliki akun?</Text>

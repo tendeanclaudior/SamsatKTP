@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   AddVehicle,
+  Akun,
   Dashboard,
   ListVehicle,
   Login,
@@ -54,6 +55,11 @@ const Router = () => {
       <Stack.Screen
         name="AddVehicle"
         component={AddVehicle}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Akun}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

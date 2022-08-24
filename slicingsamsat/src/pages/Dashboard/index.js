@@ -58,7 +58,7 @@ const Dashboard = ({navigation}) => {
             onPress={() => navigation.navigate('AddVehicle')}
           />
         </View>
-        <Button click="iconOnly" icon="iconVector" />
+        <Button click="iconOnly" icon="iconVector" onPress={() => navigation.navigate('Profile')} />
       </View>
     </ImageBackground>
   );
